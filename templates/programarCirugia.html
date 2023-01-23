@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <a href="{% url 'home' %}" class="icon">
+        <i class="fa-solid fa-arrow-left icon_back"></i>
+    </a>
+    <h2>Programar Cirugia</h2>
+    <form method="post" class="patient_form">
+        <label for="cedula">Ingrese la cédula del paciente:</label>
+        <input type="text" id="cedula" name="cedula"><br>
+
+        <label for="tipo">Elija el tipo de cirugía:</label>
+        <input type="text" id="tipo" name="tipo"><br>
+
+        <label for="opcion">Seleccione la opción de cirguía :</label>
+        <input type="text" id="opcion" name="opcion"><br>
+
+        <label for="obervasiones">Obersavaciones:</label>
+        <input type="text" id="obervasiones" name="obervasiones"><br>
+
+        <label for="fecha">Ingrese la fecha:</label>
+        <input type="date" id="fecha" name="fecha"><br>
+
+        <label for="gravedad">Ingrese la gravedad de la cirguía:</label>
+        <select name="gravedad">
+            <option value="1">Inmediato</option>
+            <option value="2">Muy urgente</option>
+            <option value="3">Urgente</option>
+            <option value="4">Medio urgente</option>
+            <option value="5">No urgente</option>
+        </select>
+
+
+        <label for="quirofano">Seleccione el quirófano:</label>
+        <input type="text" id="quirofano" name="quirofano"><br>
+
+        <input type="submit" value="GENERAR CIRUGIA">
+    </form>
+
+
+</body>
+</html>

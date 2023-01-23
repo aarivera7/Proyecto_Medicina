@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <main class="home_content">
+        <div class="top">
+            <div class="top_right">
+                <img src="{% static '/images/sin_foto.png' %}" alt="Foto Perfil" class="img_profile">
+            </div>
+            <div class="top_left">
+                <p class="home--welcome">Bienvenida<br>{{ name }}</p>
+                <a href="{% url 'edit_profile' %}" class="profile_button">EDITAR PERFIL</a>
+                <a href="{% url 'logout' %}" class="profile_button">CERRAR SESIÓN</a>
+            </div>
+        </div>
+        <div class="down">
+            <a href="{% url 'indicators' %}" class="home--button"><i class="fa-solid fa-percent"></i>  INDICADORES</a>
+            <a href="{% url 'create_patient' %}" class="home--button"><i class="fa-solid fa-user-plus"></i> INGRESAR UN NUEVO PACIENTE</a>
+            <a href="{% url 'schedule_surgery' %}" class="home--button"><i class="fa-solid fa-calendar-days"></i>  PROGRAMAR CIRUGÍA</a>
+            <a href="{% url 'list_patient' %}" class="home--button"><i class="fa-solid fa-people-group"></i> VER LISTA DE PACIENTES</a>
+            <a href="{% url 'list_surgery' %}" class="home--button"><i class="fa-solid fa-list"></i> VER LISTA DE CIRUGÍAS</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <a href="{% url 'home' %}" class="icon">
+        <i class="fa-solid fa-arrow-left icon_back"></i>
+    </a>
+    <main class="edit_content">
+        <img src="{% static '/images/sin_foto.png' %}" alt="Foto Perfil" class="img_profile">
+        <h2>{{ name }}</h2>
+        <a class="button">EDITAR DATOS</a>
+        <a class="button">CAMBIAR FOTO</a>
+        <a href="{%  url 'change_password' %}" class="button">CAMBIAR CONTRASEÑA</a>
+    </main>
+</body>
+</html>

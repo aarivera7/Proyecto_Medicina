@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Recuperación de cuenta</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="cedula">Ingrese la cédula del paciente:</label>
+        <input type="text" id="cedula" name="cedula"><br>
+        <input type="submit" value="Recuperar cuenta">
+    </form>
+</body>
+</html>

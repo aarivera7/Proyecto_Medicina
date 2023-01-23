@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class = "icon">
+        <a href="{% url 'home' %}" >
+            <i class="fa-solid fa-arrow-left icon_back"></i>
+        </a>
+    </div>
+    <main class="indicators_content">
+        <h2>Indicadores</h2>
+        <section class="indicators">
+            <p>Porcentaje de pacientes en cirugías programadas los fines de semana del mes</p>
+            <p>Porcentaje de cirugías programadas derivadas a la red pública y complementarias</p>
+            <p>Porcentaje de intervenciones de acuerdo al tipo de especialidad quirúrgica</p>
+            <p>Porcentaje de equipos funcionales dentro de la sala asignada para las cirugías programadas</p>
+        </section>
+    </main>
+</body>
+</html>

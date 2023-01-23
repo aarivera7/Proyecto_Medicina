@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h2>Cambio de la contraseña</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="{{ form.new_password1.id_for_label }}">Ingrese su nueva clave: </label>
+        {{ form.new_password1 }}
+        <ul>
+            <li>Su contraseña no puede asemejarse tanto a su otra información personal.</li>
+            <li>Su contraseña debe contener al menos 8 caracteres.</li>
+            <li>Su contraseña no puede ser una clave utilizada comúnmente.</li>
+            <li>Su contraseña no puede ser completamente numérica.</li>
+        </ul>
+
+        <label for="{{ form.new_password2.id_for_label }}">Ingrese nuevamente la clave: </label>
+        {{ form.new_password2 }}
+
+        <input type="submit" value="CAMBIAR CLAVE">
+
+
+    </form>
+</body>
+</html>

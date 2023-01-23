@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+<a href="{% url 'home' %}" class="icon">
+    <i class="fa-solid fa-arrow-left icon_back"></i>
+</a>
+<main class="full_height list_patient_content">
+    <section class="patient_search">
+        <h2>Lista de cirugías</h2>
+        {%  block buscador %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class = "input-grup">
+                    <input type="text" name="buscar" placeholder="Ingrese elemento a buscar">
+                    <button class="button" type="submit">
+                        <i class="i">Buscar</i>
+                    </button>
+                </div>
+            </form>
+        {%  endblock buscador %}
+        {%  block pacientesRequerido %}
+
+        {%  endblock pacientesRequerido %}
+    </section>
+    <table>
+        <tr>
+            <th>Especialidad</th>
+            <th>Tipo de circuía</th>
+            <th>Razón</th>
+            <th>Urgencia</th>
+            <th>Fecha</th>
+            <th>Es derivado</th>
+        </tr>
+
+        {% for surgery in surgeries %}
+            <tr>
+                <td>{{ surgery.speciality }}</td>
+                <td>{{ surgery.type_surgery}}</td>
+                <td>{{ surgery.reason_surgery }}</td>
+                <td>{{ surgery.surgery_urgency }}</td>
+                <td>{{ surgery.date }}</td>
+                <td>{{ surgery.is_derived }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+</main>
+</body>
+</html>

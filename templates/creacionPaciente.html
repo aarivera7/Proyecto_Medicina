@@ -1,0 +1,43 @@
+    {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <main>
+        <a href="{% url 'home' %}" class="icon">
+            <i class="fa-solid fa-arrow-left icon_back"></i>
+        </a>
+        <h2>Creación de Paciente</h2>
+        <form method="post" class="patient_form">
+            {% csrf_token %}
+
+            <input type="text" name="{{ form.id_card.html_name }}" maxlength="10" minlength="7" required id="{{ form.id_card.id_for_label }}" placeholder="Cédula">
+
+            <input type="text" name="{{ form.name.html_name }}" maxlength="80" minlength="1" required id="{{ form.name.id_for_label }}" placeholder="Nombres">
+
+            <input type="text" name="{{ form.last_name.html_name }}" maxlength="80" minlength="1" required id="{{ form.last_name.id_for_label }}" placeholder="Apellidos">
+
+            <input type="date" name="{{ form.date_birth.html_name }}" id="{{ form.date_birth.is_for_label }}" placeholder="Fecha de Nacimiento">
+
+            <input type="text" name="{{ form.allergies.html_name }}" maxlength="80" id="{{ form.allergies.id_for_label }}" placeholder="Alergias">
+
+            <input type="text" name="{{ form.medical_family_history.html_name }}" maxlength="200" id="{{ form.medical_family_history.id_for_label }}" placeholder="Antecedentes Familiares">
+
+            <input type="text" name="{{ form.blood_type.html_name }}" maxlength="4" id="{{ form.blood_type.id_for_label }}" placeholder="Tipo de sangre">
+
+            <input type="text" name="{{ form.phone_number.html_name }}" maxlength="16" id="{{ form.phone_number.id_for_label }}" placeholder="Número de contacto">
+
+            <input type="text" name="{{ form.id_history.html_name }}" maxlength="15" id="{{ form.id_history.id_for_label }}" placeholder="Nro. de historia clinica">
+
+            <input type="submit" class="button" value="Ingresar Paciente">
+        </form>
+    </main>
+
+</body>
+</html>

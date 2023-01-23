@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <main class="full_height list_patient_content">
+        <a href="{% url 'home' %}" class="icon">
+            <i class="fa-solid fa-arrow-left icon_back"></i>
+        </a>
+        <section class="patient_search">
+            <h2>Listado de pacientes</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class = "input-group">
+                    <input type="text" name="buscar" placeholder="Ingrese elemento a buscar">
+                    <button class="button" type="submit">
+                        <i class="i">Buscar</i>
+                    </button>
+                </div>
+            </form>
+
+        </section>
+        <table>
+            <tr>
+                <th>Cédula</th>
+                <th>Paciente</th>
+                <th>Edad</th>
+                <th>Alergias</th>
+                <th>Tipo Sangre</th>
+                <th>Editar</th>
+            </tr>
+
+            {% for patient in paciente_r %}
+                <tr>
+                    <td>{{ patient.id_card }}</td>
+                    <td>{{ patient.name }} {{ patient.last_name }}</td>
+                    <td>{{ patient.date_birth }}</td>
+                    {% if patient.allergies == '' %}
+                        <td>Ninguna</td>
+                    {% else %}
+                        <td>{{ patient.allergies }}</td>
+                    {% endif %}
+                    <td>{{ patient.blood_type }}</td>
+                    <td>editar</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </main>
+</body>
+</html>
