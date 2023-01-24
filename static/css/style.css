@@ -234,3 +234,9 @@ th {
 .change--container form .button {
     align-self: center;
 }
+/* Reset Password */
+.password-reset--content {
+    text-align: center;
+    height: 100vh;
+    padding: 20px;
+}
